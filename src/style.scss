@@ -1,0 +1,8 @@
+@import './scripts/page/template.scss';
+
+body {
+  background: $deep-dark;
+  &.stop-scroll {
+    overflow: hidden;
+  }
+}

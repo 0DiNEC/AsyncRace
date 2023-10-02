@@ -1,0 +1,13 @@
+@import '../template.scss';
+
+.pagination {
+  margin-top: 20px;
+  .pagination-button {
+    @extend %button-template;
+    @include hovered-box-shadow($color: $gold-hover);
+    background: $gold;
+    width: 100px;
+    padding: 5px;
+    margin: 0 10px;
+  }
+}

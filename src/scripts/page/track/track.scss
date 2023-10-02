@@ -1,0 +1,103 @@
+@import '../template.scss';
+
+.track-header {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  .select-btn,
+  .remove-btn {
+    @extend %button-template;
+    @include hovered-box-shadow($color: $light-red);
+    background: $sky-blue;
+    width: 100px;
+    &.blocked {
+      opacity: 0.6;
+      transition: none;
+      box-shadow: none;
+    }
+  }
+
+  .car-name {
+    color: $gold;
+  }
+
+  * {
+    margin: 0 10px;
+  }
+}
+
+.track-area {
+  position: relative;
+  border-bottom: 3px dashed $light;
+  margin: 0 10px;
+  .start-engine-btn,
+  .break-engine-btn {
+    position: relative;
+    background: none;
+    border-radius: 5px;
+    border: 2px solid gray;
+    color: gray;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    opacity: 0.7;
+  }
+  .start-engine-btn.active,
+  .break-engine-btn.active {
+    color: $gold;
+    border-color: $gold;
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .start-img {
+    position: absolute;
+    left: 150px;
+    bottom: 0;
+    border: 2px dotted $light;
+    background-position: center;
+    background-size: contain;
+    height: 24px;
+    --traffic-color: red;
+    &::before {
+      content: 'start';
+      position: absolute;
+      bottom: 100%;
+      left: -25px;
+      width: 50px;
+      text-align: center;
+      background: var(--traffic-color);
+      color: $dark;
+      border-radius: 50%;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      border-bottom: 3px solid $light;
+      width: 23px;
+      bottom: -4px;
+      left: -10px;
+    }
+  }
+
+  .end-track-position {
+    position: absolute;
+    right: 100px;
+    bottom: 0;
+    .finish-img {
+      background: url('./finish.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .car {
+    position: absolute;
+    transition: translate 0.1s ease-in;
+    left: 50px;
+    bottom: -6px;
+  }
+}

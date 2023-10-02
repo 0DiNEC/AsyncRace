@@ -1,0 +1,73 @@
+@import '../template.scss';
+
+.header {
+  .links {
+    position: relative;
+    z-index: 999;
+    margin: 10px 0;
+    .links-btn {
+      @extend %button-template;
+      @include hovered-box-shadow($color: $gold-hover);
+      background: $gold;
+    }
+  }
+  .car-maker {
+    margin: 10px 0;
+    .car-setting {
+      display: flex;
+      margin: 10px 0;
+      .car-maker-input,
+      .car-color-input {
+        @extend %input-template;
+        padding: 0;
+      }
+      .car-color-input {
+        cursor: pointer;
+        inline-size: 30px;
+        margin: 0 5px;
+        transition: box-shadow 0.5s ease-in-out;
+        @include hovered-box-shadow($color: $deep-blue);
+      }
+      .car-btn {
+        @extend %button-template;
+        @include hovered-box-shadow($color: $deep-blue);
+        background: $sky-blue;
+        width: 115px;
+        &.blocked {
+          opacity: 0.6;
+          box-shadow: none;
+          transition: none;
+        }
+      }
+    }
+  }
+
+  .func-btns {
+    display: inline-flex;
+    .race-btn,
+    .reset-btn {
+      @extend %button-template;
+      @include hovered-box-shadow($color: $deep-blue);
+      background: $sky-blue;
+      width: 103.4px;
+      &.blocked {
+        opacity: 0.5;
+        cursor: default;
+        transition: none;
+        &:hover {
+          box-shadow: none;
+        }
+      }
+    }
+    .reset-btn {
+      margin: 0 2px;
+    }
+    .generate-btn {
+      @extend %button-template;
+      @include hovered-box-shadow($color: $gold-hover);
+      background: $gold;
+      width: 150px;
+      margin: 0 3px;
+    }
+  }
+}
